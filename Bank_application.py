@@ -13,17 +13,18 @@ class Bank():
 
 #withdrawal
     def withdraw(self,amount):
-         if (amount<self.balance):
-          
-          self.balance=self.balance-amount
-         print(f'{amount} withdrwan successfully.')
+          if self.balance<amount:
+               print("INSUFICIENT FUND!")
+          else:
+            self.balance=self.balance-amount
+            print(f'{amount} withdrwan successfully.')
 
 
 #account creation
 firstname =input('Enetr your firstname:')
 lastname =input('Enter your lastname:')
-aadharnumber =int(input('Enter your adhar number :'))
-print(f'Hello your account created successfully.')
+aadharnumber =int(input('Enter your aadhar number :'))
+print(f'Hello,{firstname} your account created successfully.')
 print('YOUR ACCOUNT BALANCE IS ZERO.')
 b=Bank(firstname,lastname,aadharnumber)
 while (1):
@@ -35,17 +36,15 @@ while (1):
  option =int(input('enter number :'))
  if option==1:
     amount=float(input('Enter your depositing amount :'))
-    
     b.deposit(amount)
  if option==2:
-         
          amount=float(input('Enter your withdrawal amount :'))
          b.withdraw(amount)
  if option==3:
-       print(f'you have {amount}')
        print('==========RAGHAVSBANK============')
        print(f'TOTAL AMOUNT :{amount}')
        print('==========THANK YOU============')
-if option==4:
-     print('THANK YOU....')
+       break
+
+       
 
